@@ -42,6 +42,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 SCRIPTS = os.path.join(HERE, "scripts")
 CACHE = os.path.join(HERE, ".cache")
 OUT = os.path.join(HERE, "mp3")
+# build_local.py (הגיבוי בקול המקומי) משאיר את הסימן הזה; דף הנגן מציין אז שזו גרסה זמנית
+LOCAL_MARK = os.path.join(OUT, "LOCAL_VOICE")
 
 COURSE = "התנהגות צרכנים"
 VOICES = {"א": "he-IL-AvriNeural", "ש": "he-IL-HilaNeural"}
@@ -250,6 +252,7 @@ audio{width:100%;height:40px;display:block;}
 .soon .num{background:var(--surface2);color:var(--muted);}
 .soon .ttl{font-weight:400;color:var(--muted);}
 .note{color:var(--muted);font-size:13px;margin-top:24px;border-top:1px solid var(--border);padding-top:14px;}
+.temp{background:var(--accentSoft);border-radius:10px;padding:9px 14px;font-size:13.5px;margin:0 0 16px;}
 </style>
 </head>
 <body>
@@ -320,6 +323,10 @@ def write_index():
     extra = ("" if not soon else " · פרק נוסף בהכנה" if len(soon) == 1
              else f" · {len(soon)} נוספים בהכנה")
     parts.append(f'<p class="tot">{count} · {hebrew_duration(total)}{extra}</p>\n')
+    if os.path.exists(LOCAL_MARK):
+        parts.append('<p class="temp">גרסה זמנית: הפרקים מוקראים כרגע בקול המובנה של המחשב, קול אחד '
+                     'לשני הדוברים, ולכן יש מילים שנשמעות לא מדויק. כשהקולות הרגילים יחזרו לעבוד, '
+                     'הפרקים יוחלפו.</p>\n')
     parts.append(INDEX_NAV)
     for num, title, name, d, size in rows:
         href = "mp3/" + urllib.parse.quote(name)
@@ -363,6 +370,8 @@ def main():
         d = duration(out)
         print(f"  → {int(d // 60)}:{int(d % 60):02d}  ({os.path.getsize(out) / 1e6:.1f} MB)")
 
+    if not only and os.path.exists(LOCAL_MARK):
+        os.remove(LOCAL_MARK)      # כל הפרקים נבנו מחדש בקולות הרגילים
     rows = write_index()           # דף הנגן תמיד מכל הפרקים שבתיקייה
     print("\n" + "─" * 58)
     for num, title, name, d, size in rows:
