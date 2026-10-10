@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>דף עזר — התנהגות צרכנים</title>
+<script>try{var t=localStorage.getItem('amq_theme');if(t)document.documentElement.className=t;}catch(e){}</script>
+<style>
+:root{--bg:#f7f6f3;--surface:#fff;--surface2:#f1efe8;--text:#1f1f1d;--muted:#6b6b66;--border:#e3e1da;--accent:#0f766e;--accentSoft:#e2f2ef;--onAccent:#fff;--warn:#9a3412;--warnBg:#fff3e6;}
+@media (prefers-color-scheme:dark){:root{--bg:#1a1a18;--surface:#242421;--surface2:#2f2f2c;--text:#ececea;--muted:#a3a39c;--border:#37372f;--accent:#5fd3c0;--accentSoft:#143d38;--onAccent:#0b1f1c;--warn:#fdba74;--warnBg:#3b2410;}}
+html.dark{--bg:#1a1a18;--surface:#242421;--surface2:#2f2f2c;--text:#ececea;--muted:#a3a39c;--border:#37372f;--accent:#5fd3c0;--accentSoft:#143d38;--onAccent:#0b1f1c;--warn:#fdba74;--warnBg:#3b2410;}
+html.light{--bg:#f7f6f3;--surface:#fff;--surface2:#f1efe8;--text:#1f1f1d;--muted:#6b6b66;--border:#e3e1da;--accent:#0f766e;--accentSoft:#e2f2ef;--onAccent:#fff;--warn:#9a3412;--warnBg:#fff3e6;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Segoe UI',Arial,sans-serif;line-height:1.5;font-size:14.5px;}
+.wrap{max-width:1040px;margin:0 auto;padding:20px 16px 50px;}
+.top{display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap;}
+.top .tt{flex:1;min-width:220px;}
+h1{font-size:22px;margin:0 0 2px;font-weight:650;}
+.sub{color:var(--muted);font-size:13.5px;margin:0 0 12px;}
+.btn{background:var(--accent);border:1px solid var(--accent);color:var(--onAccent);border-radius:8px;padding:7px 14px;font:inherit;font-size:14px;cursor:pointer;}
+.iconbtn{background:var(--surface2);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:7px 11px;font:inherit;font-size:14px;cursor:pointer;}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px;}
+.nav a{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:7px 13px;color:var(--text);text-decoration:none;font-size:13.5px;}
+.nav a:hover{border-color:var(--accent);}
+.cols{column-count:2;column-gap:18px;}
+@media (max-width:760px){.cols{column-count:1;}}
+section{break-inside:avoid;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:9px 12px 10px;margin:0 0 12px;}
+h2{font-size:15.5px;margin:0 0 6px;padding:2px 9px;background:var(--accent);color:var(--onAccent);border-radius:6px;font-weight:650;}
+h3{font-size:14px;margin:8px 0 3px;color:var(--accent);font-weight:650;}
+p{margin:3px 0;}
+ul{margin:3px 0;padding:0 18px 0 0;}
+li{margin:1.5px 0;}
+b{font-weight:650;}
+.def{background:var(--accentSoft);border-radius:6px;padding:4px 8px;margin:4px 0;}
+.warn{background:var(--warnBg);color:var(--warn);border-radius:6px;padding:4px 8px;margin:4px 0;}
+.ex{color:var(--muted);}
+table{border-collapse:collapse;width:100%;margin:5px 0;font-size:inherit;}
+th,td{border:1px solid var(--border);padding:3px 6px;vertical-align:top;text-align:right;}
+th{background:var(--surface2);font-weight:650;}
+td.k{font-weight:650;white-space:nowrap;background:var(--surface2);}
+.lvl{display:inline-block;min-width:1.4em;text-align:center;background:var(--surface2);border-radius:4px;font-weight:650;margin-inline-end:4px;}
+.foot{color:var(--muted);font-size:12px;margin-top:8px;}
+@page{size:A4;margin:9mm 9mm 10mm;}
+@media print{
+  :root,html.dark,html.light{--bg:#fff;--surface:#fff;--surface2:#eeeeea;--text:#000;--muted:#333;--border:#999;--accent:#0b5a54;--accentSoft:#e6f1ef;--onAccent:#fff;--warn:#7a2a0c;--warnBg:#fbeee2;}
+  body{font-size:8.3pt;line-height:1.32;background:#fff;}
+  .wrap{max-width:none;padding:0;}
+  .noprint{display:none !important;}
+  h1{font-size:13pt;} .sub{font-size:8pt;margin-bottom:5px;}
+  h2{font-size:9.6pt;margin-bottom:3px;padding:1px 6px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  h3{font-size:8.8pt;margin:4px 0 1px;}
+  section{padding:4px 7px 5px;margin-bottom:6px;border-radius:5px;}
+  .cols{column-count:2;column-gap:10px;}
+  th,td{padding:1.5px 4px;}
+  .def,.warn,th,td.k,.lvl{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .def,.warn{padding:2px 5px;margin:2px 0;}
+  ul{padding-right:13px;} li{margin:.5px 0;} p{margin:1.5px 0;}
+  .foot{font-size:7pt;margin-top:3px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top">
+  <div class="tt">
+    <h1>דף עזר — התנהגות צרכנים</h1>
+    <p class="sub">הנושאים לבחינה לפי דף התרגול: יחידה 2, מצגת 3, מצגת 4, מצגת 5. הבחינה: 14 שאלות אמריקאיות · מותר חומר עזר מודפס.</p>
+  </div>
+  <button class="btn noprint" onclick="window.print()">הדפסה</button>
+  <button class="iconbtn noprint" id="theme" title="מצב כהה / בהיר">◐</button>
+</div>
+<div class="nav noprint">
+  <a href="index.html">🎯 בוחן התרגול</a>
+  
+</div>
+
+<div class="cols">
+
+<section>
+<h2>יחידה 2 · הכרה בצורך וערכים</h2>
+<div class="def"><b>צורך</b> = פער (תפיסה של פער) בין המצב המצוי לרצוי. כשהפער רחב מספיק, הצרכן מכיר בצורך ומונע לספק אותו.</div>
+<p><b>הנעה:</b> צורך שלא סופק ← מתח ← פעילות שמטרתה להרגיע את המתח.</p>
+<table>
+<tr><td class="k">צורך</td><td>יעד על, עמוק ומופשט. <span class="ex">«הרגשה עצמית טובה»</span></td></tr>
+<tr><td class="k">רצון</td><td>דרך פעולה מסוימת שהצרכן בוחר כדי לספק את הצורך. <span class="ex">«להתעמל בחדר כושר מסוים»</span></td></tr>
+<tr><td class="k">ביקוש</td><td>המשווק משפיע גם עליו, ביצירת מסוגלות לשימוש. <span class="ex">פרזנטור שדומה לצרכן</span></td></tr>
+</table>
+<p><b>תפקיד המשווק/ת:</b> להבין מה הצורך העיקרי, ולעורר רצון: למצב את המוצר כעונה על הצורך. <span class="ex">בני נוער ← צורך חברתי ← טלפון כעונה על צרכים חברתיים.</span></p>
+<div class="warn">פרסום אינו יוצר צורך בסיסי חדש. הוא מבליט את הפער בין מצוי לרצוי, וכך מעורר הכרה בצורך. המוצר הוא דרך לספק את הצורך (רצון).</div>
+
+<h3>פירמידת הערכים של BAIN לצרכנים פרטיים (B2C)</h3>
+<p>הרחבה של מאסלו: <b>30 ערכים, 4 קבוצות</b>. מהבסיס אל הקודקוד:</p>
+<table>
+<tr><td class="k"><span class="lvl">1</span>שימושיים</td><td>איכות, מגוון, חוסך מאמץ, מפשט, חוסך זמן, מחבר עם אנשים, מפחית סיכון</td></tr>
+<tr><td class="k"><span class="lvl">2</span>רגשיים</td><td>אסתטיקה ועיצוב, כיף, נוסטלגיה. בעיקר הנאה חושית</td></tr>
+<tr><td class="k"><span class="lvl">3</span>משני חיים</td><td>שייכות, מימוש עצמי, מוטיבציה, תקווה. הצרכים הגבוהים אצל מאסלו</td></tr>
+<tr><td class="k"><span class="lvl">4</span>תועלת לסביבה</td><td>הקודקוד</td></tr>
+</table>
+<ul>
+<li>ככל שמותג מקושר ליותר צרכים, וגם לרגשיים ולגבוהים ← שביעות רצון, נתח שוק וצמיחה. <span class="ex">נספרסו: לא רק סטטוס. גם קיימות, אסתטיקה, איכות.</span></li>
+<li><b>הערך המרכזי</b> (Unique Value Point): מבדל מהמתחרים + רלוונטי לקהל המטרה + החברה יכולה לספק אותו לאורך זמן. מובלט בסיסמה; בשאר ההצעה מציגים את כלל הערכים.</li>
+</ul>
+
+<h3>לקוחות עסקיים (B2B)</h3>
+<div class="def"><b>קנייה מוסדית</b> = תהליך קבלת החלטות שבו ארגון פורמלי קובע את הצורך ברכישה, ומזהה, מעריך ובוחר בין מותגים וספקים.</div>
+<p><b>מאפיינים:</b> מעט קונים · רכישות גדולות · כמה גורמים מעורבים בהחלטה · ניסיון מקצועי · מעורבות גבוהה · מחזור קנייה ארוך · קריטריונים פורמליים · יחסים הדוקים עם הספק · ביקוש קשיח וגזור · יותר שלבים ואישורים · לרוב 4–5 פגישות מכר עד החוזה.</p>
+<p>הערכים בעיקר שימושיים, אבל יש גם תועלות רגשיות ואישיות לעובדים. <span class="ex">הנאה בעבודה, התפתחות אישית.</span></p>
+
+<h3>פירמידת הערכים של BAIN ללקוחות עסקיים</h3>
+<p><b>40 ערכים, 5 קבוצות</b>. מהבסיס אל הקודקוד:</p>
+<table>
+<tr><td class="k"><span class="lvl">1</span>דרישות סף</td><td>אתיות, משפטיות, כספיות, טכניות. <span class="ex">עמידה באבטחה וברגולציה</span></td></tr>
+<tr><td class="k"><span class="lvl">2</span>פונקציונליים</td><td>Scalability: עוזר לארגון לצמוח ולגדול</td></tr>
+<tr><td class="k"><span class="lvl">3</span>הקלה על תהליך העבודה</td><td>נגישות (מגוון) · מערכת יחסים עם הספק (אמינות, תגובתיות) · תפוקה. <span class="ex">קיצור תהליכי עבודה</span></td></tr>
+<tr><td class="k"><span class="lvl">4</span>אישיים</td><td>תורמים לעובדים עצמם: הנאה ופינוקים בעבודה, תרומה לקריירה</td></tr>
+<tr><td class="k"><span class="lvl">5</span>השראה</td><td>חזון, אחריות תאגידית</td></tr>
+</table>
+<div class="warn">יכולת צמיחה = ערך <b>פונקציונלי</b>, לא רגשי. ערך אישי <b>כן</b> רלוונטי ב-B2B.</div>
+<p><b>ABM:</b> לומדים לעומק על ארגון היעד ועל מקבלי ההחלטות בו (ברמה האישית והמקצועית) ← פנייה ייחודית: מסר לפי הערכים שנדרשים בארגון, לדמות מסוימת (מנכ"ל/ית), עם עמוד נחיתה מותאם. <b>ההפך:</b> מסר אחיד וזהה לאלפי ארגונים.</p>
+</section>
+
+<section>
+<h2>מצגת 3 · תפיסה: חשיפה ← קשב ← פרשנות</h2>
+<h3>חשיפה</h3>
+<p>הקליטה הראשונית בחושים, בצורה גולמית (צליל, קו, אות, בלי משמעות). כמה חושים יחד = יותר ערוצי קליטה. מידע חזותי ← החצי הימני; מילולי ועובדתי ← החצי השמאלי; שילוב = קשרים חזקים יותר.</p>
+<table>
+<tr><td class="k">הסף המוחלט</td><td>עוצמת הגירוי המינימלית שנדרשת כדי לקלוט אותו בחושים. מתחתיו: <b>גירוי תת־ספי</b>, שיכול להיקלט ואף להשפיע, בלי שנהיה מודעים לו. <span class="ex">ריח חלש בכניסה לחנות</span></td></tr>
+<tr><td class="k">סף ההבחנה בהבדל</td><td>כדי להרגיש <b>שינוי</b> בגירוי, השינוי צריך עוצמה מספקת. <b>חוק ובר:</b> ככל שהגירוי הראשוני גדול יותר, צריך שינוי גדול יותר כדי להבחין בו.</td></tr>
+</table>
+<p class="ex">שינוי לרעת הצרכן (מחיר שעלה) צריך להיכתב בבירור על המוצר או האריזה; בפועל לא נאכף בקפידה.</p>
+<h3>קשב: ההחלטה באילו גירויים למקד את תשומת הלב</h3>
+<table>
+<tr><td class="k">לא רצוני<br>Bottom-up<br>מקורו בגירוי</td><td>הגירוי עצמו בולט: עוצמה גבוהה מהרגיל, יוצא דופן, לא צפוי. <span class="ex">מוצר בתצוגה שזזה, כשהשאר עומד</span></td></tr>
+<tr><td class="k">רצוני<br>Top-down<br>מקורו בצרכן</td><td>הגירוי פונה לצרכים ולנושאים שחשובים לצרכן ← עירנות תפיסתית. <span class="ex">מודעה פשוטה למצלמה, למי שמחפשת מצלמה · וולט בפסח: תרומת מארזי מזון</span></td></tr>
+</table>
+<h3>פרשנות וגשטלט</h3>
+<p>פרשנות = ארגון הרשמים מהחושים ומתן משמעות. ורטהיימר: שני הבזקי אור נראו כנקודה אחת שנעה ← התודעה משליכה תבנית. <b>«השלם שונה מסכום חלקיו».</b></p>
+<table>
+<tr><td class="k">דמות ורקע</td><td>החוק היסודי. דמות = עיקר הקשב; רקע = המידע המשני. מבליטים את המסר העיקרי כדמות. <span class="ex">כפתור «המשך לתשלום» גדול ומבודד.</span> טשטוש מכביד, אבל לפעמים המאמץ יוצר מעורבות ועיבוד עמוק.</td></tr>
+<tr><td class="k">סגירות / השלמה</td><td>משלימים מידע חסר לתבנית שלמה. הרצון להשלים יוצר מעורבות. <span class="ex">לוגו חסר, טיזר, סיפור מעורר סקרנות</span></td></tr>
+<tr><td class="k">קרבה / סמיכות</td><td>מה שקרוב בזמן ובמרחב נתפס כקשור. <span class="ex">חטיף בריאות ליד אגוזים ופירות · נעלי בד ליד נעלי נוחות</span></td></tr>
+<tr><td class="k">דמיון</td><td>מאפיינים חזותיים דומים נתפסים כקשורים. <span class="ex">פריטים מאותו תחום באותו עיצוב · קולקציה של זארה כמו יצירות אמנות</span></td></tr>
+<tr><td class="k">רציפות טובה / המשכיות</td><td>אלמנטים על קו או על עקומה נתפסים כקשורים.</td></tr>
+<tr><td class="k">פשטות</td><td>המוח מעדיף פשוט, ברור ומסודר: נתפס כבטוח יותר, ודורש פחות זמן ומשאבים.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>מצגת 4 · זיכרון מפורש</h2>
+<p><b>מודל שלושת המאגרים:</b> זיכרון חושי ←(קשב)← טווח קצר ←(קידוד)← טווח ארוך. שליפה מחזירה מהטווח הארוך. הזיכרון החושי = החשיפה; גירוי שלא נלכד נמחק בידי הבא אחריו.</p>
+<h3>זיכרון לטווח קצר: תחנת ביניים, «צוואר בקבוק»</h3>
+<table>
+<tr><td class="k">זמן</td><td>15–30 שניות ← פתרון: <b>שינון וחזרה</b> <span class="ex">(תזכורות, מסר מעניין)</span></td></tr>
+<tr><td class="k">קיבולת</td><td>5–9 גושי מידע ← פתרון: לארגן ב<b>מעט גושים</b> (עד תשעה)</td></tr>
+<tr><td class="k">קידוד</td><td>בעיקר שמיעתי, גם חזותי</td></tr>
+<tr><td class="k">שכחה</td><td><b>התקה</b>: פריט חדש תופס את המקום של ישן <span class="ex">(קוד הנחה שני)</span> · <b>דעיכה</b>: הזמן שחלף</td></tr>
+</table>
+<p class="ex">גוש מידע = יחידה מאורגנת לפי משמעות. 7,000 = גוש אחד; 7-0-0-0 = ארבעה גושים.</p>
+<h3>זיכרון לטווח ארוך: לא מוגבל בזמן ולא בקיבולת</h3>
+<p><b>קוד סמנטי</b> = לפי המשמעות, ה«מה» · <b>קוד פרוצדורלי / תסריט פעולה</b> = לפי סדר הפעולות, ה«איך».</p>
+<p><b>הרשת הסמנטית:</b> מושגים קשורים למשמעויות שלהם וזה לזה. משמעות עובדתית <span class="ex">(מרצדס = מכונית)</span> או אסוציאטיבית וסובייקטיבית <span class="ex">(יוקרה / מיושנת)</span>. ערך המותג עולה כשהנתיבים חזקים, המשמעויות ייחודיות מול המתחרים, ורלוונטיות לצרכן.</p>
+<table>
+<tr><td class="k">צפיפות</td><td>למושג יש יותר משמעויות. <span class="ex">יותר ערכים למותג</span></td></tr>
+<tr><td class="k">חוזק</td><td>אמונות חזקות. נבנה מחזרה על אותה זהות או אסוציאציה, בדרכים שונות.</td></tr>
+<tr><td class="k">סימטריה</td><td>מותג ← ערך, וגם ערך ← מותג. <span class="ex">סטימצקי ↔ ספרים: סימטרי. סטימצקי ← צעצועים: לא סימטרי.</span></td></tr>
+<tr><td class="k">דמיון</td><td>גבוה ← הכללה <span class="ex">(בית ממותג)</span>. נמוך ← הבדלה <span class="ex">(מול מתחרים; בית של מותגים)</span>.</td></tr>
+</table>
+<div class="warn">הוספת ערכים למותג מגדילה בהכרח את ה<b>צפיפות</b>. לא בהכרח את החוזק או את הדמיון.</div>
+<h3>שכחה בטווח הארוך: חסימות</h3>
+<table>
+<tr><td class="k">חסימה לאחור</td><td>מידע <b>חדש</b> דוחק מידע <b>ישן</b>. הישן נפגע. <span class="ex">וולט ← קשה להיזכר בתן ביס</span></td></tr>
+<tr><td class="k">חסימה לפנים</td><td>ידע <b>קודם</b> מקשה לזכור מידע <b>חדש</b>. החדש נפגע. <span class="ex">ניו פארם ← השם החדש לא נזכר · קרפור קראה לסניפים «סופר» כדי למנוע חסימה לפנים</span></td></tr>
+</table>
+</section>
+
+<section>
+<h2>מצגת 4 · זיכרון מרומז מול מפורש</h2>
+<table>
+<tr><th></th><th>מפורש</th><th>מרומז</th></tr>
+<tr><td class="k">כהנמן</td><td>מערכת 2 · טייס לא אוטומטי</td><td>מערכת 1 · טייס אוטומטי</td></tr>
+<tr><td class="k">איך פועל</td><td>מודע, ביקורתי, במאמץ מנטלי</td><td>אוטומטי, אסוציאטיבי, לא מודע, בלי מאמץ</td></tr>
+<tr><td class="k">קיבולת</td><td>5–9 גושי מידע</td><td>עצומה: מעבד כמעט כל אות בסביבה. גם גירוי חלש והיקפי משפיע</td></tr>
+<tr><td class="k">תוכן</td><td>מידע עובדתי <span class="ex">(שם ראש הממשלה)</span></td><td>תסריט פעולה אוטומטי, משמעויות לא מודעות</td></tr>
+</table>
+<p><b>ראיות:</b> אמנזיה (שוכחים עובדות, אבל לומדים כישורים מוטוריים ותפיסתיים) · קנינג (מותג חזק: הרגש מתעורר, החשיבה הרציונלית מצטמצמת, הצרכנים מכחישים; בעיקר במותגים חזקים) · <b>התרמה</b> (מוכוונים להתמקד בהיבטים מסוימים, בלי מודעות) · <b>אשליית האמת</b> (מאמינים יותר למה שכבר שמענו).</p>
+<h3>ארבע משמעויות שיווקיות</h3>
+<table>
+<tr><td class="k">מסגור</td><td>מה שסביב המוצר (רקע, אווירה, סידור החנות, תאורה, ריח, מוזיקה, צבעים, מיתוג) משפיע על הערך הנתפס. הצרכנים מכחישים, ולכן תשאול עצמי לא תופס את זה. <span class="ex">אותו יין בכוס יוקרתית</span></td></tr>
+<tr><td class="k">ציפיות מוטמעות</td><td>ידע קודם, לא בהכרח מודע, יוצר ציפיות. Top-down. חשיפה סלקטיבית: שמים לב רק למה שמחזק עמדה קודמת. <span class="ex">מחקר הפודינג: הצבע השפיע על הטעם</span></td></tr>
+<tr><td class="k">גישות מוטבעות</td><td>רוב העמדות אינן מודעות <span class="ex">(תחליף בשר «לא טעים»)</span> ← מחקרי עומק: השלכה, תצפיות, נוירו־מרקטינג, מדידה משותפת (conjoint).</td></tr>
+<tr><td class="k">עונג וסבל</td><td>במקביל ובלי מודעות: עונג מהציפייה לתועלת, וסבל מהעלות. קונים כשתפיסת התועלת גבוהה מתפיסת העלות. מעצימים עונג, מפחיתים כאב. <span class="ex">הספרה השמאלית: 4.00←2.99 נתפס כהנחה גדולה מ-4.01←3.00 · גרסה יקרה ליד המוצר</span></td></tr>
+</table>
+<div class="def"><b>עמדה</b> = הערכה אישית, חיובית או שלילית, כלפי אובייקט, שמשפיעה על הנכונות להגיב כלפיו.</div>
+<p><b>מתי פונים למרומז:</b> כשרוצים למנוע חשיבה ביקורתית <span class="ex">(מזון «טבעי» בסמלים ובצבעים, לא בעובדות)</span>, או לחזק מסר עובדתי. <span class="ex">רובוט בסופר־פארם: חדשנות גם במפורש וגם במרומז.</span></p>
+<h3>תסריט פעולה ודחיפה קלה</h3>
+<p><b>תסריט פעולה:</b> זיכרון של ה«איך». מיומנויות חשיבתיות ומוטוריות, בלי מאמץ קוגניטיבי, אוטומטי גם אם נלמד במודע. <span class="ex">רכיבה על אופניים</span></p>
+<div class="def"><b>דחיפה קלה (Nudge)</b>, ת'אלר וסונשטיין: התערבות קלה, שמשנה התנהגות באופן צפוי, בלי לאסור אפשרויות ובלי לשנות משמעותית תמריצים כלכליים.</div>
+<p class="ex">הגה בצד שמאל ← נוטים לפנות ימינה ← מוצרים לקידום בצד ימין · מוצרי עוגן בקצות מעברים ארוכים.</p>
+<p><b>הכוונה מפורשת:</b> אזהרה על קופסת סיגריות, קלוריות על האריזה. <b>מרומזת:</b> מרצפות קטנות שמאיטות את ההליכה; עוגות בפרוסות קטנות, שמשאירות מקום לפירות.</p>
+</section>
+
+<section>
+<h2>מצגת 5 · מעורבות</h2>
+<div class="def"><b>מעורבות</b> = רמת הנגיעה האישית שאדם מייחס למוצר או להתנהגות מסוימת. משתנה <b>רציף</b> (נמוכה ↔ גבוהה), ומשתנה <b>מתערב</b>: משפיע על כל השלבים שאחרי ההכרה בצורך.</div>
+<p><b>מדידה:</b> סולם המעורבות האישית של זייקובסקי. רב־פריט; בפריטים שמסומנים בכוכבית (מחצית) הופכים את התשובה, ואז מחשבים ממוצע.</p>
+<table>
+<tr><th></th><th>מעורבות גבוהה</th><th>מעורבות נמוכה</th></tr>
+<tr><td class="k">ההחלטה</td><td>מקיפה, נעשית מראש</td><td>קצרה, אפשר בנקודת הרכישה</td></tr>
+<tr><td class="k">עיבוד המידע</td><td>מעמיק, בזיכרון המפורש</td><td>מהיר ואוטומטי, בזיכרון המרומז</td></tr>
+</table>
+<p><b>במעורבות גבוהה:</b> העמדה שלפני הקנייה יציבה מאוד, ויש מתאם גבוה בינה לבין ההתנהגות בנקודת הרכישה. הצרכן פחות מושפע מגירויים בחנות (נגישות על המדף, מבצעים של מתחרים, שינויי מחיר). אחרי הרכישה: הערכה משמעותית יותר, לבטים, ופוטנציאל גבוה יותר לדיסוננס.</p>
+<h3>הגורמים לרמת המעורבות</h3>
+<table>
+<tr><td class="k"><span class="lvl">1</span>המוצר</td><td>כמה תועלות או <b>סיכונים</b> כרוכים בו: כלכלי, חברתי, פונקציונלי, בריאותי, פסיכולוגי</td></tr>
+<tr><td class="k"><span class="lvl">2</span>הצרכן</td><td><b>אישיות:</b> אימפולסיבי מחליט מהר גם בהחלטות משמעותיות; מתנגד לשינוי מתקשה גם בפשוטות. <b>דמוגרפיה:</b> מצב כלכלי פחות טוב ← סיכון כלכלי גדול יותר ← מעורבות גבוהה יותר</td></tr>
+<tr><td class="k"><span class="lvl">3</span>ההקשר</td><td>עייפות, לחץ זמן בזמן הקנייה ← <b>מורידים</b> מעורבות</td></tr>
+<tr><td class="k"><span class="lvl">4</span>(תקשורת שיווקית)</td><td>יכולה להעלות. שלושת הראשונים הם העיקריים בספרות</td></tr>
+</table>
+<p><b>אינטראקציות:</b> צרכן × מוצר <span class="ex">(נשים: עיצוב הבית; גברים: תפעול הגינה)</span> · הקשר × מוצר <span class="ex">(בלגן בחנות יוקרה מעלה מעורבות; בלגן בדוכן בשוק מוריד)</span> · משולשת <span class="ex">(מצב כלכלי ירוד ← מעורבות גבוהה גם בשוק)</span>.</p>
+<h3>דפוסי הקנייה לפי עשהאל</h3>
+<table>
+<tr><th></th><th>מעורבות גבוהה</th><th>מעורבות נמוכה</th></tr>
+<tr><td class="k">החלטה מחודשת<br>(מעריכים חלופות)</td><td><b>קבלת החלטה מורכבת</b><br>יש משמעות להבדלים, ואפשר להתרשם מראש. <span class="ex">דירה</span></td><td><b>קבלת החלטות מוגבלת</b> · חיפוש מגוון<br>ערך בגיוון ובהתנסות; הערכה מהירה בנקודת המכירה. <span class="ex">גלידות, אביזרי שיער</span></td></tr>
+<tr><td class="k">קנייה חוזרת<br>(הרגל)</td><td><b>נאמנות</b><br>סיכון ואי ודאות בהחלטה חדשה. אחרי הערכה מעמיקה ושביעות רצון גבוהה מאוד; כל עוד מרוצים. <span class="ex">ייעוץ פסיכולוגי או משפטי, טיפול יופי</span></td><td><b>אינרציה</b><br>בידול נמוך או קושי להבין הבדלים. אין סיכון בגיוון, אבל גם אין בו ערך. <span class="ex">חומרי ניקיון, חלב</span></td></tr>
+</table>
+<p><b>שתי שאלות לכל מקרה:</b> (1) מעורבות גבוהה או נמוכה? (2) החלטה מחודשת, או חזרה על אותה קנייה?</p>
+<p class="ex"><b>לא לבחינה</b> (העשרה בלבד, לפי הסיכום): מאמצי השיווק ברמות מעורבות שונות, למידה פסיבית, עצם החשיפה, שינוי רמת המעורבות.</p>
+</section>
+
+<section>
+<h2>צמדים שמתבלבלים</h2>
+<table>
+<tr><td class="k">צורך / רצון</td><td>פער מופשט בין מצוי לרצוי / הדרך המסוימת לספק אותו</td></tr>
+<tr><td class="k">דרישת סף / פונקציונלי</td><td>תנאי כניסה (רגולציה, אבטחה) / מה שהמוצר נותן לעסק (צמיחה)</td></tr>
+<tr><td class="k">סף מוחלט / סף ההבחנה</td><td>האם קולטים את הגירוי בכלל / האם מרגישים שהשתנה (חוק ובר)</td></tr>
+<tr><td class="k">קשב לא רצוני / רצוני</td><td>הגירוי עצמו בולט / הגירוי רגיל, אבל נוגע למה שמעסיק את הצרכן</td></tr>
+<tr><td class="k">קרבה / דמיון</td><td>מונחים זה ליד זה / נראים אותו דבר</td></tr>
+<tr><td class="k">דמות ורקע / סגירות</td><td>מבליטים דבר אחד / חסר משהו והצופה משלים</td></tr>
+<tr><td class="k">התקה / דעיכה</td><td>שתיהן בטווח הקצר: פריט חדש תפס את המקום / עבר זמן</td></tr>
+<tr><td class="k">התקה / חסימה לאחור</td><td>בשתיהן חדש פוגע בישן: טווח קצר / טווח ארוך</td></tr>
+<tr><td class="k">חסימה לאחור / לפנים</td><td>הישן נשכח / החדש לא נקלט</td></tr>
+<tr><td class="k">צפיפות / חוזק</td><td>כמה קשרים יש למושג / כמה חזק כל קשר (חזרה על אותו ערך)</td></tr>
+<tr><td class="k">מסגור / ציפיות מוטמעות</td><td>הסביבה שסביב המוצר / ידע קודם על המוצר</td></tr>
+<tr><td class="k">אינרציה / נאמנות</td><td>קנייה חוזרת במעורבות נמוכה, מהרגל / במעורבות גבוהה, כדי להימנע מסיכון</td></tr>
+<tr><td class="k">מוגבלת / אינרציה</td><td>שתיהן מעורבות נמוכה: יש ערך בגיוון / אין ערך בגיוון</td></tr>
+</table>
+<h3>איך לגשת לשאלה</h3>
+<ul>
+<li>כמעט כל שאלה היא מקרה קצר, שצריך לשייך למושג. קודם מזהים את <b>הפרק</b>, ואחר כך את <b>המושג</b>.</li>
+<li>הרבה מסיחים הם מושגים אמיתיים מפרק אחר. מוחקים אותם קודם.</li>
+<li>בדף התרגול, מילים מוחלטות (בלבד, תמיד, בהכרח, רק) מופיעות בעיקר בתשובות הלא נכונות.</li>
+</ul>
+</section>
+
+</div>
+<p class="foot">לתרגול לימודי בלבד · נבנה מסיכומי המצגות של הקורס ומדף התרגול. אם משהו כאן סותר את המצגות, המצגות קובעות.</p>
+</div>
+<script>
+document.getElementById('theme').onclick=function(){
+  var cur=document.documentElement.className;
+  var dark=cur==='dark'||(cur!=='light'&&window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches);
+  var nx=dark?'light':'dark';document.documentElement.className=nx;
+  try{localStorage.setItem('amq_theme',nx);}catch(e){}
+};
+</script>
+</body>
+</html>
