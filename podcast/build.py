@@ -72,9 +72,14 @@ def azure_config():
     if not (key and region) and os.path.exists(AZURE_FILE):
         with open(AZURE_FILE, encoding="utf-8-sig") as f:
             lines = [ln.strip() for ln in f if ln.strip()]
-        if len(lines) >= 2:
-            key, region = lines[0], lines[1]
+        # הסדר לא חשוב: המפתח הוא השורה הארוכה (32 תווים ומעלה), והאזור הוא השורה הקצרה
+        key = next((ln for ln in lines if len(ln) >= 32), "")
+        region = next((ln for ln in lines if len(ln) < 32), "")
+        if key and not region:
+            sys.exit("ב-azure-key.txt יש מפתח אבל חסרה שורת האזור (למשל germanywestcentral).")
     region = region.lower().replace(" ", "")          # „West Europe״ -> westeurope
+    if key and region and not re.fullmatch(r"[a-z0-9]{4,30}", region):
+        sys.exit("שם האזור ב-azure-key.txt לא נראה תקין (צריך להיות למשל germanywestcentral).")
     return (key, region) if key and region else None
 
 # הפרקים שתוכננו. פרק שעוד אין לו קובץ שמע מוצג בדף הנגן כ„בהכנה״.
