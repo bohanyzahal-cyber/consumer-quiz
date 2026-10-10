@@ -27,7 +27,9 @@ import re
 import subprocess
 import sys
 import time
+import urllib.error
 import urllib.parse
+import urllib.request
 
 import edge_tts
 
@@ -52,6 +54,28 @@ ALBUM = COURSE + " — פודקאסט תרגול"
 GAP = 0.45                      # הפסקה בין דוברים
 PARA_GAP = 0.9                  # הפסקה בין פסקאות
 CONCURRENCY = 3                 # בקשות סינתזה במקביל (מתון: השירות חוסם עומס)
+
+# ── Azure Speech: הדרך הרשמית לאותם קולות ───────────────────────────────
+# edge-tts נשען על שירות ההקראה של דפדפן Edge, ומיקרוסופט מסרבת לו לפעמים (403).
+# כשיש מפתח של Azure Speech, הסינתזה עוברת דרך ה-REST הרשמי, באותם קולות בדיוק.
+# המפתח נקרא ממשתני הסביבה AZURE_SPEECH_KEY ו-AZURE_SPEECH_REGION, או מהקובץ
+# azure-key.txt שבתיקייה הזו (שורה ראשונה: המפתח; שורה שנייה: האזור, למשל westeurope).
+# הקובץ רשום ב-.gitignore. לא מדפיסים את המפתח ולא שומרים אותו בשום מקום אחר.
+AZURE_FILE = os.path.join(HERE, "azure-key.txt")
+AZURE_FORMAT = "audio-24khz-96kbitrate-mono-mp3"
+AZURE_EVERY = 3.2               # שניות בין בקשות: בשכבת החינם (F0) מותרות 20 בקשות בדקה
+
+
+def azure_config():
+    key = os.environ.get("AZURE_SPEECH_KEY", "").strip()
+    region = os.environ.get("AZURE_SPEECH_REGION", "").strip()
+    if not (key and region) and os.path.exists(AZURE_FILE):
+        with open(AZURE_FILE, encoding="utf-8-sig") as f:
+            lines = [ln.strip() for ln in f if ln.strip()]
+        if len(lines) >= 2:
+            key, region = lines[0], lines[1]
+    region = region.lower().replace(" ", "")          # „West Europe״ -> westeurope
+    return (key, region) if key and region else None
 
 # הפרקים שתוכננו. פרק שעוד אין לו קובץ שמע מוצג בדף הנגן כ„בהכנה״.
 PLANNED = [
@@ -128,6 +152,50 @@ async def synth_missing(jobs):
     await asyncio.gather(*(synth_one(v, t, d, sem) for v, t, d in jobs))
 
 
+def azure_one(key, region, voice, text, dest):
+    ssml = ("<speak version='1.0' xml:lang='he-IL'><voice name='%s'>%s</voice></speak>"
+            % (voice, html.escape(text, quote=False)))
+    req = urllib.request.Request(
+        f"https://{region}.tts.speech.microsoft.com/cognitiveservices/v1",
+        data=ssml.encode("utf-8"),
+        headers={"Ocp-Apim-Subscription-Key": key,
+                 "Content-Type": "application/ssml+xml",
+                 "X-Microsoft-OutputFormat": AZURE_FORMAT,
+                 "User-Agent": "consumer-quiz-podcast"})
+    for attempt in range(6):
+        try:
+            with urllib.request.urlopen(req, timeout=90) as r:
+                data = r.read()
+            break
+        except urllib.error.HTTPError as e:
+            if e.code in (401, 403):
+                sys.exit(f"Azure דחה את הבקשה ({e.code}): המפתח או האזור אינם נכונים. "
+                         "בדקו את שתי השורות ב-azure-key.txt מול «Keys and Endpoint» בפורטל.")
+            if attempt == 5:
+                raise RuntimeError(f"סינתזה נכשלה ({e.code}): {text[:60]}") from e
+            time.sleep(30 if e.code == 429 else 4 * (attempt + 1))    # 429: חרגנו מהקצב
+        except (urllib.error.URLError, TimeoutError) as e:
+            if attempt == 5:
+                raise RuntimeError(f"סינתזה נכשלה: {text[:60]}") from e
+            time.sleep(4 * (attempt + 1))
+    if len(data) < 500:
+        raise RuntimeError(f"Azure החזיר שמע ריק: {text[:60]}")
+    with open(dest + ".part", "wb") as f:
+        f.write(data)
+    os.replace(dest + ".part", dest)
+
+
+def synth_azure(jobs, key, region):
+    """בקשה אחת בכל פעם, בקצב שמותר בשכבת החינם."""
+    for n, (voice, text, dest) in enumerate(jobs, 1):
+        started = time.time()
+        azure_one(key, region, voice, text, dest)
+        if n % 20 == 0 or n == len(jobs):
+            print(f"    {n}/{len(jobs)}", flush=True)
+        if n < len(jobs):
+            time.sleep(max(0.0, AZURE_EVERY - (time.time() - started)))
+
+
 def silence(seconds):
     dest = cache_path("sil", f"{seconds:.3f}")
     if not os.path.exists(dest):
@@ -154,13 +222,20 @@ def build(path, force=False):
             jobs.append((voice, text, dest))
         pieces.append(dest)
 
-    if not jobs and os.path.exists(out) and not force:
+    # כשהקובץ הקיים הוא הגרסה הזמנית בקול המקומי, מרכיבים אותו מחדש גם אם אין מה לסנתז
+    if not jobs and os.path.exists(out) and not force and not os.path.exists(LOCAL_MARK):
         print(f"  ✓ {os.path.basename(out)} — ללא שינוי")
         return out
 
     if jobs:
-        print(f"  מסנתז {len(jobs)} שורות…")
-        asyncio.run(synth_missing(jobs))
+        azure = azure_config()
+        if azure:
+            print(f"  מסנתז {len(jobs)} שורות ב-Azure Speech "
+                  f"(כ-{len(jobs) * AZURE_EVERY / 60:.0f} דקות)…", flush=True)
+            synth_azure(jobs, *azure)
+        else:
+            print(f"  מסנתז {len(jobs)} שורות…")
+            asyncio.run(synth_missing(jobs))
 
     # כותרת שהשתנתה משאירה אחריה קובץ ישן עם אותו מספר — מוחקים אותו
     for old in os.listdir(OUT):

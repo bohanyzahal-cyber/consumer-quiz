@@ -18,3 +18,6 @@ podcast/.cache/
 
 # הגדרות מקומיות של הכלי
 .claude/
+
+# מפתח Azure Speech של מי שבונה את הפודקאסט — לעולם לא נכנס למאגר
+podcast/azure-key.txt
